@@ -1,0 +1,76 @@
+cabal-version:      2.4
+name:               hs-js-playground
+version:            0.1
+license:            MIT
+license-file:       LICENSE
+tested-with: GHC ==9.8.2 || ==9.10.1
+
+copyright:          2024 Thomas Bidne
+author:             Thomas Bidne
+maintainer:         tbidne@protonmail.com
+homepage:           https://github.com/tbidne/hs-js-playground/
+bug-reports:        https://github.com/tbidne/hs-js-playground/issues
+synopsis:           Template
+description:        Template
+category:           Template
+extra-source-files:
+  .gitignore
+  cabal.project
+  CHANGELOG.md
+  README.md
+
+source-repository head
+  type:     git
+  location: https://github.com/tbidne/hs-js-playground
+
+common common-lang
+  default-extensions:
+    BangPatterns
+    ConstraintKinds
+    DataKinds
+    DeriveAnyClass
+    DeriveFunctor
+    DeriveGeneric
+    DeriveTraversable
+    DerivingStrategies
+    DerivingVia
+    FlexibleContexts
+    FlexibleInstances
+    FunctionalDependencies
+    GADTs
+    GeneralizedNewtypeDeriving
+    ImportQualifiedPost
+    InstanceSigs
+    LambdaCase
+    MultiParamTypeClasses
+    MultiWayIf
+    NamedFieldPuns
+    NumericUnderscores
+    OverloadedStrings
+    PatternSynonyms
+    RankNTypes
+    ScopedTypeVariables
+    StandaloneDeriving
+    StandaloneKindSignatures
+    TupleSections
+    TypeApplications
+    TypeFamilyDependencies
+    TypeOperators
+
+  default-language:   GHC2021
+
+library
+  import:          common-lang
+  exposed-modules: Lib
+  build-depends:   base >=4.19.0.0 && <4.21
+  hs-source-dirs:  src
+
+executable hs-js-playground
+  import:         common-lang
+  main-is:        Main.hs
+  build-depends:
+    , base
+    , hs-js-playground
+
+  hs-source-dirs: app
+  ghc-options:    -threaded -with-rtsopts=-N
