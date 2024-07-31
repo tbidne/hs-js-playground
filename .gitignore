@@ -2,8 +2,8 @@
 dist-newstyle*
 cabal.project.local
 
-# stack
-.stack-work
+# ghcjs artifacts
+/app/bin/
 
 # nix
 result*
